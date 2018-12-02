@@ -33,6 +33,9 @@ class UserController extends Controller
         ]);
 
         $user = User::create($post);
+
+        $user->load('company');
+        return response()->json($user);
     }
 
     /**
